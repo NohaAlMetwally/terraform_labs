@@ -1,6 +1,7 @@
 resource "aws_subnet" "subnet_public1_tf" {
-  vpc_id     = aws_vpc.terraform_vpc.id
-  cidr_block = "10.0.1.0/24"
+  vpc_id                  = aws_vpc.terraform_vpc.id
+  cidr_block              = var.subnet_public1_cidr
+  availability_zone = var.az_1
   map_public_ip_on_launch = "true"
 
   tags = {
@@ -9,8 +10,9 @@ resource "aws_subnet" "subnet_public1_tf" {
 }
 
 resource "aws_subnet" "subnet_public2_tf" {
-  vpc_id     = aws_vpc.terraform_vpc.id
-  cidr_block = "10.0.2.0/24"
+  vpc_id                  = aws_vpc.terraform_vpc.id
+  cidr_block              = var.subnet_public2_cidr
+  availability_zone = var.az_1
   map_public_ip_on_launch = "true"
 
   tags = {
@@ -20,7 +22,8 @@ resource "aws_subnet" "subnet_public2_tf" {
 
 resource "aws_subnet" "subnet_private1_tf" {
   vpc_id     = aws_vpc.terraform_vpc.id
-  cidr_block = "10.0.3.0/24"
+  cidr_block = var.subnet_private1_cidr
+  availability_zone = var.az_1
 
   tags = {
     Name = "subnet_private1_tf"
@@ -29,9 +32,11 @@ resource "aws_subnet" "subnet_private1_tf" {
 
 resource "aws_subnet" "subnet_private2_tf" {
   vpc_id     = aws_vpc.terraform_vpc.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block = var.subnet_private2_cidr
+  availability_zone = var.az_2
 
   tags = {
     Name = "subnet_private2_tf"
   }
 }
+
