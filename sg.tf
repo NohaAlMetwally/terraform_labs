@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_ssh" {
   name   = "allow_ssh"
-  vpc_id = aws_vpc.terraform_vpc.id
+  vpc_id = module.network.cide_vpc
 
   ingress {
     description = "ssh"
@@ -21,7 +21,7 @@ resource "aws_security_group" "allow_ssh" {
 
 resource "aws_security_group" "allow_ssh3000" {
   name   = "allow_ssh3000"
-  vpc_id = aws_vpc.terraform_vpc.id
+  vpc_id = module.network.cide_vpc
 
   ingress {
     description = "ssh"

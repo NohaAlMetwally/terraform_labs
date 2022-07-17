@@ -1,7 +1,7 @@
 resource "aws_instance" "bastion_tf" {
   ami                    = var.ami_type
   instance_type          = var.instance_type
-  subnet_id              = aws_subnet.subnet_public1_tf.id
+  subnet_id              = module.network.subnet_public1_cidr
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   key_name               = "EC2Tutorial"
 
@@ -14,7 +14,7 @@ resource "aws_instance" "bastion_tf" {
 resource "aws_instance" "application_tf" {
   ami                    = var.ami_type
   instance_type          = var.instance_type
-  subnet_id              = aws_subnet.subnet_private1_tf.id
+  subnet_id              = module.network.subnet_private1_cidr
   vpc_security_group_ids = [aws_security_group.allow_ssh3000.id]
   key_name               = "EC2Tutorial"
 
