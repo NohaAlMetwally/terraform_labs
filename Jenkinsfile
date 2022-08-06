@@ -18,7 +18,7 @@ pipeline {
                 // to build docker image from node app and push it to my docker hub
                 sh '''
 
-                    docker build ./app -f ./jenkins_nodejs_example/Dockerfile -t nohaalmetwally/nodejs:latest
+                    docker build ./app -f ./app/dockerfile -t nohaalmetwally/nodejs:latest
                     docker login -u ${USERNAME} -p ${PASSWORD}
                     docker push nohaalmetwally/nodejs:latest
                 
