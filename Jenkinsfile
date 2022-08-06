@@ -1,7 +1,7 @@
 pipeline {
 
     // to denfin node which the pipeline will create on it 
-    agent {label "ec2-private-slave"}
+    agent {label "slave"}
 
     stages {
         stage('get code') {
