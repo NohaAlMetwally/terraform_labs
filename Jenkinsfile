@@ -39,7 +39,7 @@ pipeline {
                 -e RDS_USERNAME='noha' 
                 -e RDS_PASSWORD='nohanoha' 
                 -e RDS_PORT='3306' 
-                'nohaalmetwally/nodejs:latest'
+                nohaalmetwally/nodejs:latest
                 '''
             }
         }
