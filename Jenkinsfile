@@ -32,7 +32,7 @@ pipeline {
                 // to run a container from image
                 sh 'docker run -d 
                 -p 3000:3000 
-                -e REDIS_HOSTNAME=terraform-cluster-example.grlyle.0001.use2.cache.amazonaws.com 
+                -e REDIS_HOSTNAME=cluster-tf.rypnzg.0001.use1.cache.amazonaws.com:6379 
                 -e REDIS_PORT=6379 
                 -e RDS_HOSTNAME=rds-terraform.c6pdt4iq9mi7.us-east-1.rds.amazonaws.com 
                 -e RDS_USERNAME="noha" 
