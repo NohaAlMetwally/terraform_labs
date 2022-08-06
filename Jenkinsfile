@@ -11,7 +11,7 @@ pipeline {
             }
         }
         
-        stage('CI'){
+       /* stage('CI'){
             steps{
                 // to git docker hub credential 
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
@@ -25,13 +25,13 @@ pipeline {
                 '''
                 }
             }   
-        }
+        }*/
 
         stage('CD'){
             steps{
                 // to run a container from image
                 sh '''
-                  docker run -d 
+                  docker run -itd 
                 -p 3000:3000 
                 -e REDIS_HOSTNAME='cluster-tf.rypnzg.0001.use1.cache.amazonaws.com:6379' 
                 -e REDIS_PORT='6379' 
