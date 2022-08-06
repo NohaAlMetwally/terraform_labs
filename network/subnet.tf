@@ -12,7 +12,7 @@ resource "aws_subnet" "subnet_public1_tf" {
 resource "aws_subnet" "subnet_public2_tf" {
   vpc_id                  = aws_vpc.terraform_vpc.id
   cidr_block              = var.subnet_public2_cidr
-  availability_zone = var.az_1
+  availability_zone = var.az_2
   map_public_ip_on_launch = "true"
 
   tags = {

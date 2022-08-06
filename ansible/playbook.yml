@@ -1,0 +1,38 @@
+- name: jenkins_slave
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  
+  tasks:
+    - name: update system
+      apt: 
+        update_cache: yes
+  
+    - name: install open-jdk
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: install docker
+      apt: 
+        name: docker.io
+    
+    - name: change docker sock permissions
+      file:
+        path: /var/run/docker.sock
+        mode: '0666'
+        
+    - name: create jenkins dir
+      file: 
+        path: /home/ubuntu/jenkins_home
+        state: directory
+        mode: '0777'
+
+
+    - name: copy jar file
+      ansible.builtin.copy:
+        src: /home/noha/Downloads/agent.jar
+        dest: /home/ubuntu/jenkins_home/agent.jar
+        owner: ubuntu
+        group: ubuntu
+        mode: '0744'
